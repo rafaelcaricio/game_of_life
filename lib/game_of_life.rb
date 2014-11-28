@@ -4,7 +4,7 @@ class GameOfLife
   def initialize(config = {})
     @rounds = config.fetch(:rounds, 10)
     @board_size = config.fetch(:board_size, 10)
-    @board = create_board
+    @board = Board.new
     @life = Life.new(board)
   end
 
@@ -14,19 +14,11 @@ class GameOfLife
 
   def run!
     for round in 1..rounds
-      execute_round!(round)
+      happens_a_new_generation!(round)
     end
   end
 
   private
-
-  def execute_round!(round)
-    happens_a_new_generation!(round)
-  end
-
-  def create_board
-    Board.new(size: board_size) { Cell.new(state: :dead) }
-  end
 
   def happens_a_new_generation!(generation)
     make_happen(life.events_in_current_generation)
