@@ -1,9 +1,8 @@
 class GameOfLife
-  attr_reader :board_size, :rounds, :board, :life
+  attr_reader :rounds, :board, :life
 
   def initialize(config = {})
     @rounds = config.fetch(:rounds, 10)
-    @board_size = config.fetch(:board_size, 10)
     @board = Board.new
     @life = Life.new(board)
   end
