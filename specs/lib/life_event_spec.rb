@@ -1,7 +1,7 @@
 require File.join(File.dirname(__FILE__), "..", "spec_helper")
 
 describe LifeEvent do
-  let(:board) { Board.new(size: 3) { Cell.new(state: :dead) } }
+  let(:board) { Board.new }
   let(:life_event) { LifeEvent.new(at: position) }
   let(:position) { Position.new(1, 1) }
 

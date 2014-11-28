@@ -4,9 +4,7 @@ describe Life do
   let(:life) { Life.new(board) }
   let(:position) { Position.new(1, 1) }
   let(:board) {
-    Board.new(size: 3) do
-      Cell.new(state: :dead)
-    end
+    Board.new
   }
 
   context "#does_something_happened_at?" do

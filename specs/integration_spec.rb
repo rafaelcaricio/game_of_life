@@ -1,7 +1,7 @@
 require File.join(File.dirname(__FILE__), "spec_helper")
 
 describe 'In a controlled environment' do
-  let(:board) { Board.new(size: 3) { Cell.new(state: :dead) } }
+  let(:board) { Board.new }
   let(:life) { Life.new(board) }
   let(:target_position) { Position.new(1, 1) }
 
