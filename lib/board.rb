@@ -14,11 +14,14 @@ class Board
     area[pos.key]
   end
 
+  def kill(pos)
+    area.delete(pos.key)
+  end
+
   def around(pos)
     things_around = []
     positions_around(pos).each do |position_around|
-      thing = at(position_around)
-      things_around << thing unless thing.nil?
+      things_around << at(position_around)
     end
     things_around
   end

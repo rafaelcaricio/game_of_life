@@ -6,7 +6,7 @@ describe 'In a controlled environment' do
   let(:target_position) { Position.new(1, 1) }
 
   before do
-    board.set_at(target_position, Cell.new(state: :alive))
+    board.set_at(target_position, Cell.new)
   end
 
   context "when get the current generation" do

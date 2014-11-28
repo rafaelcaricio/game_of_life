@@ -16,8 +16,11 @@ class Life
     cells_around = board.around(position)
     alive_neighbors = how_many_alive?(cells_around)
 
-    return to_alive_cell_with?(alive_neighbors) if relative_to.alive?
-    return to_dead_cell_with?(alive_neighbors) if relative_to.dead?
+    if relative_to.nil?
+      to_dead_cell_with?(alive_neighbors)
+    else
+      to_alive_cell_with?(alive_neighbors)
+    end
   end
 
   private
@@ -32,7 +35,7 @@ class Life
   end
 
   def how_many_alive?(cells)
-    cells.select{ |cell| cell.alive? }.size
+    cells.select{ |cell| !cell.nil? }.size
   end
 
   attr_reader :board

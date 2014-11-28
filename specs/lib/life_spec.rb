@@ -26,57 +26,57 @@ describe Life do
     end
 
     context "when theres less than two live neighbours dies" do
-      let(:cells_around) { [ Cell.new(state: :alive) ] }
+      let(:cells_around) { [ Cell.new ] }
 
       context "when cell alive" do
-        let(:cell) { Cell.new(state: :alive) }
+        let(:cell) { Cell.new }
         it_should_behave_like 'something happens'
       end
 
       context "when cell is dead" do
-        let(:cell) { Cell.new(state: :dead) }
+        let(:cell) { nil }
         it_should_behave_like 'nothing happens'
       end
     end
 
     context "when two or three live neighbours lives on to the next generation" do
-      let(:cells_around) { [ Cell.new(state: :alive), Cell.new(state: :alive) ] }
+      let(:cells_around) { [ Cell.new, Cell.new ] }
 
       context "when cell alive" do
-        let(:cell) { Cell.new(state: :alive) }
+        let(:cell) { Cell.new }
         it_should_behave_like 'nothing happens'
       end
 
       context "when cell is dead" do
-        let(:cell) { Cell.new(state: :dead) }
+        let(:cell) { nil }
         it_should_behave_like 'nothing happens'
       end
     end
 
     context "when more than three live neighbours dies" do
-      let(:cells_around) { [ Cell.new(state: :alive), Cell.new(state: :alive), Cell.new(state: :alive), Cell.new(state: :alive) ] }
+      let(:cells_around) { [ Cell.new, Cell.new, Cell.new, Cell.new ] }
 
       context "when cell alive" do
-        let(:cell) { Cell.new(state: :alive) }
+        let(:cell) { Cell.new }
         it_should_behave_like 'something happens'
       end
 
       context "when cell is dead" do
-        let(:cell) { Cell.new(state: :dead) }
+        let(:cell) { nil }
         it_should_behave_like 'nothing happens'
       end
     end
 
     context "when exactly three live neighbours becomes a live cell" do
-      let(:cells_around) { [ Cell.new(state: :alive), Cell.new(state: :alive), Cell.new(state: :alive) ] }
+      let(:cells_around) { [ Cell.new, Cell.new, Cell.new ] }
 
       context "when cell alive" do
-        let(:cell) { Cell.new(state: :alive) }
+        let(:cell) { Cell.new }
         it_should_behave_like 'nothing happens'
       end
 
       context "when cell is dead" do
-        let(:cell) { Cell.new(state: :dead) }
+        let(:cell) { nil }
         it_should_behave_like 'something happens'
       end
     end
